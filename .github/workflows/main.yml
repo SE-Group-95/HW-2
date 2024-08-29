@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write  # Grant write permissions to the GITHUB_TOKEN
+
+
 jobs:
   test:
     runs-on: ubuntu-latest
