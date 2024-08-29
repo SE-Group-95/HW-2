@@ -1,3 +1,5 @@
+![coverage](https://img.shields.io/badge/coverage-92.86%25-brightgreen)
+
 # CSC 510 Software Engineering 
 ## HW-1 [![Python Tests](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml)
 
