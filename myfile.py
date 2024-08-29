@@ -8,7 +8,7 @@ def multiply(x, y):
     return x * y
 
 def divide(x, y):
-    if a != 0:
+    if y != 0:
         return x / y
     else:
         return "Cannot divide by zero!"
