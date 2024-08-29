@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntus
+    runs-on: ubuntu
 
     steps:
     - uses: actions/checkout@v4
