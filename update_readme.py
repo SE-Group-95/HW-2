@@ -15,19 +15,17 @@ def update_readme(readme_file, coverage):
     with open(readme_file, 'r') as file:
         content = file.read()
 
-    # Replace the old badge (assuming it's in a specific format)
-    new_content = content
+    # Replace the old badge or add a new one
     if "![coverage]" in content:
-        new_content = content.replace(
+        content = content.replace(
             content.split("![coverage](")[1].split(")")[0],
             badge_url
         )
     else:
-        # Add the badge at the top if it's not present
-        new_content = badge_markdown + "\n\n" + content
+        content = badge_markdown + "\n\n" + content
 
     with open(readme_file, 'w') as file:
-        file.write(new_content)
+        file.write(content)
 
 if __name__ == "__main__":
     coverage = parse_coverage('coverage.xml')

@@ -43,7 +43,6 @@ jobs:
 
     - name: Update README with coverage badge
       run: |
-        pip install badge-maker  # Install badge-maker or any tool to generate badges
         python update_readme.py
 
     - name: Commit and push changes
