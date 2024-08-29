@@ -1,7 +1,7 @@
 # HW-1
 
 
-[![Python Tests](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml/badge.svg)](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml)
+[![Python Tests](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/SE-Group-97/HW-1/actions/workflows/main.yml)
 
 
 ![Python](https://img.shields.io/badge/language-Python-blue)
