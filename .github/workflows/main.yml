@@ -47,6 +47,8 @@ jobs:
 
     - name: Commit and push changes
       run: |
+        git config --global user.name 'MayurG26'
+        git config --global user.email 'mayurgotmare1234@gmail.com'
         git add README.md
         git commit -m "Update coverage badge"
         git push
