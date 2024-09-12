@@ -9,41 +9,34 @@ on:
       - main
 
 jobs:
-  setup-python:
-    name: Set up Python 3.12 (or desired version)
+  autopep8-check:
+    name: autopep8
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Download and install Python 3.12
+    - name: Install dependencies
       run: |
-        wget https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tgz
-        tar -xf Python-3.12.0.tgz
-        cd Python-3.12.0
+        sudo apt update
+        sudo apt install -y wget build-essential libssl-dev libffi-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev \
+        libncursesw5-dev xz-utils tk-dev
+
+    - name: Download and install Python 3.13
+      run: |
+        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        tar -xf Python-3.13.0a1.tgz
+        cd Python-3.13.0a1
         ./configure --enable-optimizations
         make -j$(nproc)
         sudo make altinstall
 
-    - name: Verify Python version
+    - name: Install required packages
       run: |
-        python3.12 --version
-        pip3.12 --version
-
-    - name: Add Python 3.12 to PATH
-      run: |
-        # Add Python 3.12 executable and pip to PATH
-        echo "::set-path name=PATH::$HOME/.local/bin"
-
-  autopep8-check:
-    name: autopep8
-    runs-on: ubuntu-latest
-    needs: setup-python
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+        /usr/local/bin/python3.13 -m pip install --upgrade pip
+        /usr/local/bin/python3.13 -m pip install autopep8 pylint bandit pytest
 
     - name: Run autopep8
       run: |
@@ -52,11 +45,31 @@ jobs:
   pylint-check:
     name: Pylint
     runs-on: ubuntu-latest
-    needs: setup-python
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y wget build-essential libssl-dev libffi-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev \
+        libncursesw5-dev xz-utils tk-dev
+
+    - name: Download and install Python 3.13
+      run: |
+        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        tar -xf Python-3.13.0a1.tgz
+        cd Python-3.13.0a1
+        ./configure --enable-optimizations
+        make -j$(nproc)
+        sudo make altinstall
+
+    - name: Install required packages
+      run: |
+        /usr/local/bin/python3.13 -m pip install --upgrade pip
+        /usr/local/bin/python3.13 -m pip install pylint
 
     - name: Run pylint
       run: |
@@ -65,11 +78,31 @@ jobs:
   bandit-check:
     name: Bandit
     runs-on: ubuntu-latest
-    needs: setup-python
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y wget build-essential libssl-dev libffi-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev \
+        libncursesw5-dev xz-utils tk-dev
+
+    - name: Download and install Python 3.13
+      run: |
+        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        tar -xf Python-3.13.0a1.tgz
+        cd Python-3.13.0a1
+        ./configure --enable-optimizations
+        make -j$(nproc)
+        sudo make altinstall
+
+    - name: Install required packages
+      run: |
+        /usr/local/bin/python3.13 -m pip install --upgrade pip
+        /usr/local/bin/python3.13 -m pip install bandit
 
     - name: Run bandit
       run: |
@@ -78,11 +111,31 @@ jobs:
   pytest-check:
     name: Pytest
     runs-on: ubuntu-latest
-    needs: setup-python
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y wget build-essential libssl-dev libffi-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev \
+        libncursesw5-dev xz-utils tk-dev
+
+    - name: Download and install Python 3.13
+      run: |
+        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        tar -xf Python-3.13.0a1.tgz
+        cd Python-3.13.0a1
+        ./configure --enable-optimizations
+        make -j$(nproc)
+        sudo make altinstall
+
+    - name: Install required packages
+      run: |
+        /usr/local/bin/python3.13 -m pip install --upgrade pip
+        /usr/local/bin/python3.13 -m pip install pytest
 
     - name: Run pytest
       run: |
