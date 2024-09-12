@@ -1,22 +1,20 @@
-name: Python Tests
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-
-permissions:
-  contents: write  # Grant write permissions to the GITHUB_TOKEN
-
+    branches:
+      - main
 
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Install dependencies for building Python
       run: |
@@ -39,22 +37,20 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python3.13 -m pip install pytest pytest-cov
+        python3.13 -m pip install autopep8 pyflakes pylint bandit pytest
 
-    - name: Run tests with pytest
+    - name: Run autopep8
       run: |
-        python3.13 -m pytest test.py --doctest-modules --junitxml=junit/test-results.xml --cov=myfile --cov-report=xml
+        autopep8 --in-place --recursive hw2
 
-    - name: Update README with coverage badge
+    - name: Run pylint
       run: |
-        python update_readme.py
+        pylint hw2
 
-    - name: Commit and push changes
+    - name: Run bandit
       run: |
-        git config --global user.name 'MayurG26'
-        git config --global user.email 'mayurgotmare1234@gmail.com'
-        git add README.md
-        git commit -m "Update coverage badge"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        bandit -r hw2
+
+    - name: Run pytest
+      run: |
+        pytest test.py
