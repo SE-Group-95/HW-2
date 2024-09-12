@@ -2,7 +2,7 @@
 Module for debugging the merge sort algorithm.
 """
 
-import rand
+from . import rand
 
 def merge_sort(arr):
     """Sorts an array using the merge sort algorithm."""
