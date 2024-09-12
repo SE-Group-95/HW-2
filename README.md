@@ -1,14 +1,12 @@
-![coverage](https://img.shields.io/badge/coverage-92.86%25-brightgreen)
-
 # CSC 510 Software Engineering 
-## HW-2 [![PyTest](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=pytest-check)
+## Debugging - HW-2  [![PyTest](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=pytest-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
 
+### Static Analysis Tools
+[![Pylint](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=pylint-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
 
-![Pylint](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=pylint-check)
+[![Bandit](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=bandit-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
 
-![Bandit](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=bandit-check)
-
-![autopep8](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=autopep8-check)
+[![autopep8](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=autopep8-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
 
 ## Group Members:
 1. Prachi Madhukar Navale
