@@ -9,6 +9,33 @@ on:
       - main
 
 jobs:
+  setup-python:
+    name: Set up Python 3.13
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies and Python 3.13
+      run: |
+        sudo apt update
+        sudo apt install -y wget build-essential libssl-dev libffi-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev \
+        libncursesw5-dev xz-utils tk-dev
+        wget https://www.python.org/ftp/python/3.13.0/Python-3.13.0a1.tgz
+        tar -xf Python-3.13.0a1.tgz
+        cd Python-3.13.0a1
+        ./configure --enable-optimizations
+        make -j$(nproc)
+        sudo make altinstall
+        python3.13 --version
+
+    - name: Install required packages
+      run: |
+        python3.13 -m pip install --upgrade pip
+        python3.13 -m pip install autopep8 pylint bandit pytest
+
   autopep8-check:
     name: autopep8
     runs-on: ubuntu-latest
@@ -17,19 +44,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python 3.13
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.13
-
-    - name: Install autopep8
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install autopep8
-
     - name: Run autopep8
       run: |
-        autopep8 --in-place --recursive hw2
+        python3.13 -m autopep8 --in-place --recursive hw2
 
   pylint-check:
     name: Pylint
@@ -39,19 +56,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python 3.13
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.13
-
-    - name: Install pylint
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install pylint
-
     - name: Run pylint
       run: |
-        pylint hw2
+        python3.13 -m pylint hw2
 
   bandit-check:
     name: Bandit
@@ -61,19 +68,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python 3.13
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.13
-
-    - name: Install bandit
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install bandit
-
     - name: Run bandit
       run: |
-        bandit -r hw2
+        python3.13 -m bandit -r hw2
 
   pytest-check:
     name: Pytest
@@ -83,16 +80,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python 3.13
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.13
-
-    - name: Install pytest
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install pytest
-
     - name: Run pytest
       run: |
-        pytest test.py
+        python3.13 -m pytest test.py
