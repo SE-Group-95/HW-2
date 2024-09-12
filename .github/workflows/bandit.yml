@@ -1,4 +1,4 @@
-name: Pytest
+name: Bandit
 
 on:
   push:
@@ -9,9 +9,8 @@ on:
       - main
 
 jobs:
-  pytest:
+  bandit:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -26,8 +25,8 @@ jobs:
 
     - name: Install required packages
       run: |
-        python3.13 -m pip install pytest
+        python3.13 -m pip install bandit
 
-    - name: Run pytest
+    - name: Run bandit
       run: |
-        PYTHONPATH=hw2 python3.13 -m pytest test.py
+        python3.13 -m bandit -r hw2

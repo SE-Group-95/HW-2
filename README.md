@@ -1,12 +1,12 @@
 # CSC 510 Software Engineering 
-## Debugging - HW-2  [![PyTest](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=pytest-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
+## Debugging - HW-2  [![Pytest](https://img.shields.io/github/workflow/status/SE-Group-95/HW-2/main?label=pytest)](https://github.com/SE-Group-95/HW-2/actions/workflows/main.yml)
 
 ### Static Analysis Tools
-[![Pylint](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=pylint-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
+[![Pylint](https://img.shields.io/github/workflow/status/SE-Group-95/HW-2/pylint?label=pylint)](https://github.com/SE-Group-95/HW-2/actions/workflows/pylint.yml)
 
-[![Bandit](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=bandit-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
+[![Bandit](https://img.shields.io/github/workflow/status/SE-Group-95/HW-2/bandit?label=bandit)](https://github.com/SE-Group-95/HW-2/actions/workflows/bandit.yml)
 
-[![autopep8](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?branch=main&job=autopep8-check)](https://github.com/22SiD/HW-2/actions/workflows/main.yml)
+[![Autopep8](https://img.shields.io/github/workflow/status/SE-Group-95/HW-2/autopep8?label=autopep8)](https://github.com/SE-Group-95/HW-2/actions/workflows/autopep8.yml)
 
 ## Group Members:
 1. Prachi Madhukar Navale
