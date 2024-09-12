@@ -1,11 +1,14 @@
 ![coverage](https://img.shields.io/badge/coverage-92.86%25-brightgreen)
 
 # CSC 510 Software Engineering 
-## HW-1 [![Python Tests](https://github.com/SE-Group-95/HW-1/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/SE-Group-95/HW-1/actions/workflows/main.yml)
+## HW-2 [![PyTest](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=pytest-check)
 
-![Python](https://img.shields.io/badge/language-Python-blue)
-![License](https://img.shields.io/badge/license-AGPL--3.0-red)
-![Platform](https://img.shields.io/badge/platform-Linux-brightgreen)
+
+![Pylint](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=pylint-check)
+
+![Bandit](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=bandit-check)
+
+![autopep8](https://github.com/22SiD/HW-2/actions/workflows/main.yml/badge.svg?job=autopep8-check)
 
 ## Group Members:
 1. Prachi Madhukar Navale
