@@ -2,7 +2,7 @@
 Module for debugging the merge sort algorithm.
 """
 
-from . import rand
+from rand import random_array
 
 def merge_sort(arr):
     """Sorts an array using the merge sort algorithm."""
@@ -36,6 +36,6 @@ def recombine(left_arr, right_arr):
     return merge_arr
 
 if __name__ == "__main__":
-    test_array = rand.random_array([None] * 20)
+    test_array = random_array([None] * 20)
     sorted_array = merge_sort(test_array)
     print(sorted_array)

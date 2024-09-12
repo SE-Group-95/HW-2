@@ -26,7 +26,7 @@ jobs:
 
     - name: Download and install Python 3.13
       run: |
-        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        wget https://www.python.org/ftp/python/3.13.0/Python-3.13.0a1.tgz
         tar -xf Python-3.13.0a1.tgz
         cd Python-3.13.0a1
         ./configure --enable-optimizations
@@ -92,7 +92,7 @@ jobs:
 
     - name: Download and install Python 3.13
       run: |
-        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
+        wget https://www.python.org/ftp/python/3.13.0/Python-3.13.0a1.tgz
         tar -xf Python-3.13.0a1.tgz
         cd Python-3.13.0a1
         ./configure --enable-optimizations
@@ -125,18 +125,16 @@ jobs:
 
     - name: Download and install Python 3.13
       run: |
-        wget https://www.python.org/ftp/python/3.13.0a1/Python-3.13.0a1.tgz
-        tar -xf Python-3.13.0a1.tgz
-        cd Python-3.13.0a1
-        ./configure --enable-optimizations
-        make -j$(nproc)
-        sudo make altinstall
+        sudo apt update -y; sudo  apt upgrade -y; sudo apt install software-properties-common -y; sudo add-apt-repository ppa:deadsnakes/ppa -y ; sudo apt update -y ; sudo apt install python3.13 -y
+        sudo apt install python3-distutils -y
+        sudo apt install python3.13-venv -y
+        python3.13 -m ensurepip --upgrade
+        python3.13 -m pip install --upgrade pip
 
     - name: Install required packages
       run: |
-        /usr/local/bin/python3.13 -m pip install --upgrade pip
         /usr/local/bin/python3.13 -m pip install pytest
 
     - name: Run pytest
       run: |
-        /usr/local/bin/python3.13 -m pytest test.py
+        PYTHONPATH=hw2 python3.13 -m pytest test.py
